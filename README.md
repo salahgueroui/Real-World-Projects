@@ -1,0 +1,2 @@
+This repository contains practical data projects built using real-world datasets.
+The goal is to apply analytical thinking, SQL, Python, and data visualization tools to solve business-oriented problems.
