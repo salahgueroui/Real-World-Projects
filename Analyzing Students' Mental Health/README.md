@@ -1,54 +1,72 @@
-Project Overview
+# 📊 Analyzing International Students' Mental Health
 
-Studying abroad offers exciting opportunities but also introduces psychological challenges.
+![SQL](https://img.shields.io/badge/SQL-PostgreSQL-blue)
+![Data Analysis](https://img.shields.io/badge/Data-Analysis-green)
+![Project](https://img.shields.io/badge/Project-Exploratory%20Data%20Analysis-orange)
+
+## 📌 Project Overview
+
+Studying abroad provides valuable academic and cultural opportunities, but it may also introduce psychological challenges as students adapt to a new environment.
 
 A Japanese international university conducted a survey in 2018 to investigate the mental health of its students. The research found that international students may face higher risks of depression due to cultural adjustment and social challenges.
 
-This project analyzes student survey data using SQL to explore how the length of stay in Japan affects mental health indicators among international students.
+This project analyzes the student survey dataset using **SQL** to explore how the **length of stay in Japan affects mental health indicators among international students**.
 
-Research Questions
+---
 
-The analysis focuses on the following questions:
+# 🎯 Research Questions
 
-Does the length of stay affect depression levels?
+The analysis aims to answer the following questions:
 
-Do students become more socially connected over time?
+1. Does the **length of stay** affect depression levels?
+2. Do international students become **more socially connected over time**?
+3. Does **acculturative stress decrease** as students adapt to the culture?
 
-Does acculturative stress decrease as students adapt?
+---
 
-Dataset
+# 🗂 Dataset
 
-The dataset contains survey responses from students enrolled in a Japanese international university.
+The dataset contains survey responses from students enrolled at a Japanese international university.
 
-Each row represents one student and includes demographic and psychological diagnostic scores.
+Each row represents **one student** and includes demographic information and psychological diagnostic scores.
 
-Total records:
+**Total records:** 201 students
 
-201 students
-Data Dictionary
-Column	Description
-inter_dom	Student type (international or domestic)
-stay	Length of stay in Japan (years)
-todep	Depression score (PHQ-9 test)
-tosc	Social connectedness score
-toas	Acculturative stress score
-Analysis Approach
+---
 
-The analysis focuses specifically on international students.
+# 📚 Data Dictionary
 
-Steps:
+| Column    | Description                              |
+| --------- | ---------------------------------------- |
+| inter_dom | Student type (International or Domestic) |
+| stay      | Length of stay in Japan (years)          |
+| todep     | Depression score (PHQ-9 test)            |
+| tosc      | Social connectedness score               |
+| toas      | Acculturative stress score               |
 
-Filter international students
+---
 
-Group students by length of stay
+# 🔎 Analysis Approach
 
-Count number of students per stay duration
+The analysis focuses specifically on **international students**.
 
-Calculate average mental health indicators
+Steps performed in the analysis:
 
-Compare how scores change over time
+1. Filter only international students.
+2. Group students by **length of stay in Japan**.
+3. Count the number of students per stay duration.
+4. Calculate average mental health indicators:
 
-SQL Query
+   * Depression score (PHQ-9)
+   * Social connectedness score
+   * Acculturative stress score
+5. Compare how these indicators change across different stay durations.
+
+---
+
+# 🧠 SQL Analysis
+
+```sql
 select stay,
 	count(*)as count_int,
 	round(avg(todep),2)as average_phq,
@@ -60,28 +78,54 @@ where inter_dom='Inter'
 group by stay 
 order by stay desc
 limit 9
+```
 
-The analysis returns a table with the following structure:
+This query calculates the number of international students and the average mental health diagnostic scores for each length of stay.
 
-stay	count_int	average_phq	average_scs	average_as
-...	...	...	...	...
+---
 
-This table shows how mental health indicators vary based on the length of stay.
+# 📈 Results
 
-Key Insights
+The query produces a table with the following structure:
 
-Possible interpretations include:
+| stay | count_int | average_phq | average_scs | average_as |
+| ---- | --------- | ----------- | ----------- | ---------- |
+| ...  | ...       | ...         | ...         | ...        |
 
-• Students who stay longer may experience lower acculturative stress as they adapt to the culture.
+This table shows how mental health indicators vary depending on how long students have stayed in Japan.
 
-• Social connectedness may increase over time as students build relationships.
+---
 
-• Depression levels may fluctuate depending on adaptation and support systems.
+# 💡 Key Insights
 
-These insights highlight the importance of social integration and support for international students.
+Potential observations from the analysis:
 
-Conclusion
+• Students who stay longer may experience **lower acculturative stress** as they adapt to the culture.
 
-This analysis demonstrates how SQL can be used to explore psychological and social factors affecting international students.
+• **Social connectedness may increase over time** as students build friendships and support networks.
 
-Understanding how length of stay influences mental health can help universities design better support systems for students studying abroad.
+• Depression levels may fluctuate depending on adaptation challenges and support systems.
+
+These insights highlight the importance of **providing social support and cultural integration programs for international students.**
+
+---
+
+# 🛠 Skills Demonstrated
+
+This project demonstrates the following skills:
+
+* SQL Data Analysis
+* Data Aggregation
+* Exploratory Data Analysis
+* Data Storytelling
+* Analytical Thinking
+
+---
+
+# 📌 Conclusion
+
+This project explores how the **length of stay in a foreign country influences the mental health of international students**.
+
+By analyzing survey data using SQL, we can identify patterns in depression levels, social connectedness, and acculturative stress.
+
+Understanding these patterns can help universities design better **support systems for international students adjusting to new cultural environments.**
